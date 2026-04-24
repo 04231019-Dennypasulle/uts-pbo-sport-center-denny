@@ -15,15 +15,7 @@
 | **Tema** | Tema ke-11 — Sport Center Kampus (Reservasi Lapangan) |
 | **Dosen** | Himawan Wicaksono, S.ST., M.T. |
 
----
 
-## 📋 Deskripsi Proyek
-
-**Sport Center ITK** adalah simulasi sistem reservasi lapangan olahraga berbasis konsol yang dibangun menggunakan bahasa pemrograman **Kotlin** dengan menerapkan paradigma **Pemrograman Berorientasi Objek (OOP)** secara ketat. Sistem ini mensimulasikan alur kerja nyata di sebuah fasilitas olahraga — mulai dari pengecekan ketersediaan jadwal, verifikasi saldo member, hingga proses *booking* yang aman dan terintegrasi.
-
-Proyek ini dirancang untuk membuktikan bahwa konsep **enkapsulasi** mampu mengamankan data-data sensitif. Data seperti uang (saldo) member dan jadwal lapangan yang sudah terpesan benar-benar tidak bisa dimanipulasi secara langsung dari luar kelas. Setiap perubahan harus melewati metode resmi dari fungsi resepsionis yang sudah dilengkapi validasi berlapis.
-
----
 
 ## 🏗️ Struktur Kelas
 
