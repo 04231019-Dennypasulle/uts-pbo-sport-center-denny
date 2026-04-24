@@ -19,31 +19,48 @@
 
 ## 📋 Deskripsi Proyek
 
-**Sport Center ITK** adalah simulasi sistem pemesanan lapangan olahraga berbasis konsol yang dikembangkan menggunakan bahasa **Kotlin**. Proyek ini bertujuan untuk mengelola jadwal penggunaan lapangan secara adil dan aman dengan menerapkan konsep **Pemrograman Berorientasi Objek (OOP)**.
+**Sport Center ITK** adalah simulasi sistem reservasi lapangan olahraga berbasis konsol yang dibangun menggunakan bahasa pemrograman **Kotlin** dengan menerapkan paradigma **Pemrograman Berorientasi Objek (OOP)** secara ketat. Sistem ini mensimulasikan alur kerja nyata di sebuah fasilitas olahraga — mulai dari pengecekan ketersediaan jadwal, verifikasi saldo member, hingga proses *booking* yang aman dan terintegrasi.
 
-Sistem ini menjamin integritas data melalui validasi berlapis: pengecekan ketersediaan jadwal lapangan dan kecukupan saldo member sebelum sebuah transaksi reservasi dianggap sah.
+Proyek ini dirancang untuk membuktikan bahwa konsep **enkapsulasi** mampu mengamankan data-data sensitif. Data seperti uang (saldo) member dan jadwal lapangan yang sudah terpesan benar-benar tidak bisa dimanipulasi secara langsung dari luar kelas. Setiap perubahan harus melewati metode resmi dari fungsi resepsionis yang sudah dilengkapi validasi berlapis.
 
 ---
 
 ## 🏗️ Struktur Kelas
 
-Sistem terdiri dari entitas utama yang saling berinteraksi untuk memastikan aturan bisnis terpenuhi.
+Sistem ini terdiri dari tiga kelas utama yang saling berinteraksi secara independen namun terintegrasi.
 
 ```text
 ┌─────────────────────────────────────────────────────────┐
-│                        Resepsionis                      │
-│  + namaResepsionis: String                              │
+│                      Resepsionis                        │
+│  + nama: String                                         │
 │  ─────────────────────────────────────────────────────  │
-│  + prosesBooking(m: Member, l: Lapangan, jam: Int): Unit│
-│  + batalkanBooking(l: Lapangan): Unit                    │
+│  + prosesBooking(m: Member, l: Lapangan, jam: String)   │
 └──────────────┬──────────────────────┬───────────────────┘
-               │ mengelola            │ memvalidasi
+               │ memproses            │ memvalidasi
                ▼                      ▼
-┌──────────────────────┐    ┌──────────────────────┐
-│        Member        │    │       Lapangan       │
-│  + nama: String      │    │  + namaLapangan: String│
-│  - saldo: Int  ←priv │    │  - isTersedia: Boolean │
-│  ────────────────    │    │  - hargaSewa: Int    │
-│  + isiSaldo(): Unit  │    └──────────────────────┘
-│  + bayar(): Unit     │
-└──────────────────────┘
+┌──────────────────────┐   ┌──────────────────────────────┐
+│        Member        │   │           Lapangan           │
+│  + id: String        │   │  + nama: String              │
+│  + nama: String      │   │  + hargaPerJam: Int          │
+│  - saldo: Int ←privat│   │  - jadwalTerbooking ←privat  │
+│  ────────────────    │   │  ──────────────────────────  │
+│  + topUp(): Unit     │   │  + cekKetersediaan(): Boolean│
+│  + potongSaldo():    │   │  + tambahJadwal(): Unit      │
+│    Boolean           │   │  + tampilkanJadwal(): Unit   │
+└──────────────────────┘   └──────────────────────────────┘
+// Contoh perlindungan enkapsulasi pada kelas Member
+var saldo: Int = saldoAwal
+    private set  // ← Nilai tidak bisa diubah langsung dari fungsi main!
+
+fun potongSaldo(jumlah: Int): Boolean {
+    return if (jumlah <= saldo) {
+        saldo -= jumlah // ← Hanya bisa dikurangi dari dalam kelas
+        true
+    } else {
+        false
+    }
+}
+uts-pbo-sport-center-denny/
+├── Main.kt                    ← Seluruh source code program Kotlin
+├── Laporan_UTS_PBO_Denny.pdf  ← Laporan analisis SDLC & Pemodelan
+└── README.md                  ← Dokumentasi proyek yang sedang dibaca ini
