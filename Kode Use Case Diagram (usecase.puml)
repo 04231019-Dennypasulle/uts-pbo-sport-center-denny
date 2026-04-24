@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+
+actor Member
+actor Resepsionis
+
+rectangle "Sistem Sport Center Kampus" {
+
+  Member --> (Booking Lapangan)
+
+  (Booking Lapangan) --> (Login / Verifikasi) : <<include>>
+  (Booking Lapangan) --> (Cek Ketersediaan Jadwal) : <<include>>
+  (Booking Lapangan) --> (Cek Saldo) : <<include>>
+
+  Resepsionis --> (Verifikasi Booking)
+
+}
+
+@enduml
