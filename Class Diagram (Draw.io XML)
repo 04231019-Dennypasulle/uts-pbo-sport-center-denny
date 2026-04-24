@@ -1,0 +1,49 @@
+<mxfile>
+  <diagram name="Class Diagram">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Member -->
+        <mxCell id="member" value="Member
+-------------------
+-id: String
+-nama: String
+-saldo: Int
+-------------------
++topUp()
++potongSaldo()" style="shape=rectangle;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="200" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- Lapangan -->
+        <mxCell id="lapangan" value="Lapangan
+-------------------
++nama: String
++hargaPerJam: Int
+-jadwalTerbooking: List
+-------------------
++cekKetersediaan()
++tambahJadwal()
++tampilkanJadwal()" style="shape=rectangle;" vertex="1" parent="1">
+          <mxGeometry x="300" y="100" width="220" height="220" as="geometry"/>
+        </mxCell>
+
+        <!-- Resepsionis -->
+        <mxCell id="resepsionis" value="Resepsionis
+-------------------
++nama: String
+-------------------
++prosesBooking()" style="shape=rectangle;" vertex="1" parent="1">
+          <mxGeometry x="200" y="350" width="200" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- Relations -->
+        <mxCell id="rel1" edge="1" source="resepsionis" target="member" parent="1"/>
+        <mxCell id="rel2" edge="1" source="resepsionis" target="lapangan" parent="1"/>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
