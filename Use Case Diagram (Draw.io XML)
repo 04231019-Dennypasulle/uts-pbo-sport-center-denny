@@ -1,0 +1,55 @@
+<mxfile>
+  <diagram name="Use Case Diagram">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Actor Member -->
+        <mxCell id="member" value="Member" style="shape=umlActor;" vertex="1" parent="1">
+          <mxGeometry x="50" y="150" width="80" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Actor Resepsionis -->
+        <mxCell id="resepsionis" value="Resepsionis" style="shape=umlActor;" vertex="1" parent="1">
+          <mxGeometry x="500" y="150" width="80" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- System -->
+        <mxCell id="system" value="Sistem Sport Center" style="rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="50" width="350" height="300" as="geometry"/>
+        </mxCell>
+
+        <!-- Use Cases -->
+        <mxCell id="booking" value="Booking Lapangan" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="100" y="50" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="login" value="Login" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="50" y="150" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cekjadwal" value="Cek Jadwal" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="200" y="150" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ceksaldo" value="Cek Saldo" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="120" y="220" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="verifikasi" value="Verifikasi Booking" style="ellipse;" vertex="1" parent="system">
+          <mxGeometry x="100" y="100" width="150" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Relations -->
+        <mxCell id="e1" edge="1" source="member" target="booking" parent="1"/>
+        <mxCell id="e2" edge="1" source="resepsionis" target="verifikasi" parent="1"/>
+
+        <mxCell id="e3" value="<<include>>" edge="1" source="booking" target="login" parent="1"/>
+        <mxCell id="e4" value="<<include>>" edge="1" source="booking" target="cekjadwal" parent="1"/>
+        <mxCell id="e5" value="<<include>>" edge="1" source="booking" target="ceksaldo" parent="1"/>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
