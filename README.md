@@ -1,3 +1,39 @@
+# 🏟️ ITK-Sport Center — Sistem Reservasi Lapangan Kampus
+
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge\&logo=kotlin\&logoColor=white) ![OOP](https://img.shields.io/badge/Paradigma-OOP-blue?style=for-the-badge) ![Status](https://img.shields.io/badge/Status-Selesai-success?style=for-the-badge) ![ITK](https://img.shields.io/badge/Institut-Teknologi%20Kalimantan-orange?style=for-the-badge)
+
+Ujian Tengah Semester — Pemrograman Berorientasi Objek (TE2514027)
+Semester Genap 2025/2026 · Program Studi Teknik Elektro
+
+---
+
+## 👤 Identitas
+
+| Keterangan | Detail                           |
+| ---------- | -------------------------------- |
+| Nama       | Denny Pasulle                    |
+| NIM        | 19                               |
+| Kelas      | A                                |
+| Tema       | Tema ke-11 — Sport Center Kampus |
+| Dosen      | Himawan Wicaksono, S.ST., M.T.   |
+
+---
+
+## 📋 Deskripsi Proyek
+
+Sistem ini merupakan simulasi reservasi lapangan berbasis console menggunakan Kotlin dengan konsep OOP.
+Fitur utama meliputi:
+
+* Booking lapangan
+* Validasi saldo
+* Validasi jadwal bentrok
+* Manajemen data secara aman (enkapsulasi)
+
+---
+
+## 💻 Source Code (Kotlin)
+
+```kotlin
 // =======================
 // CLASS MEMBER
 // =======================
@@ -81,7 +117,7 @@ class Resepsionis(val nama: String) {
 }
 
 // =======================
-// MAIN FUNCTION (SIMULASI)
+// MAIN FUNCTION
 // =======================
 fun main() {
 
@@ -89,20 +125,54 @@ fun main() {
     val lapangan = Lapangan("Futsal A", 100000)
     val resepsionis = Resepsionis("Admin")
 
-    println("=== SIMULASI SISTEM SPORT CENTER ===")
+    println("=== SIMULASI SPORT CENTER ===")
 
-    // Gagal (saldo kurang)
     resepsionis.prosesBooking(member, lapangan, "10:00")
-
-    // Top up saldo
     member.topUp(100000)
-
-    // Sukses
+    resepsionis.prosesBooking(member, lapangan, "10:00")
     resepsionis.prosesBooking(member, lapangan, "10:00")
 
-    // Gagal (jadwal bentrok)
-    resepsionis.prosesBooking(member, lapangan, "10:00")
-
-    // Tampilkan jadwal
     lapangan.tampilkanJadwal()
 }
+```
+
+---
+
+## 🎮 Skenario Program
+
+* ❌ Gagal: saldo tidak mencukupi
+* ➕ Top up saldo
+* ✅ Sukses: booking berhasil
+* ❌ Gagal: jadwal bentrok
+
+---
+
+## ⚙️ Aturan Bisnis
+
+* Tidak bisa booking jika jadwal bentrok
+* Tidak bisa booking jika saldo kurang
+* Saldo otomatis berkurang saat booking berhasil
+
+---
+
+## 📁 Struktur Repository
+
+```
+UTS-PBO-Sport-Center/
+├── Main.kt
+├── diagram/
+└── README.md
+```
+
+---
+
+## 💡 Kesimpulan
+
+Program ini berhasil menerapkan konsep enkapsulasi dengan membatasi akses langsung ke data dan memastikan semua perubahan dilakukan melalui method yang tervalidasi.
+
+---
+
+## ☕ Penutup
+
+Dibuat dengan logika, kopi, dan deadline ☕🔥
+Institut Teknologi Kalimantan · 2026
