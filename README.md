@@ -12,7 +12,7 @@ Semester Genap 2025/2026 · Program Studi Teknik Elektro
 | Keterangan | Detail                           |
 | ---------- | -------------------------------- |
 | Nama       | Denny Pasulle                    |
-| NIM        | 19                               |
+| NIM        | 04231019                               |
 | Kelas      | A                                |
 | Tema       | Tema ke-11 — Sport Center Kampus |
 | Dosen      | Himawan Wicaksono, S.ST., M.T.   |
